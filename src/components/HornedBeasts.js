@@ -17,6 +17,12 @@ class HornedBeasts extends Component {
 
     console.log(this.state);
   };
+  selectHandler=()=>{
+    console.log('hii Rania');
+    // console.log(this.props.title,this.props.image_url,this.props.description);
+    this.props.selectHandler(this.props.title,this.props.image_url,this.props.description);
+    this.props.show();
+  }
 
   render() {
     const mystyle = {
@@ -28,7 +34,7 @@ class HornedBeasts extends Component {
     return (
       <>
         <Col>
-          <Card>
+          <Card  >
             <Card.Img
               variant="top"
               src={this.props.image_url}
@@ -42,8 +48,8 @@ class HornedBeasts extends Component {
                 {" "}
                 <span>💗 : {this.state.clicked}</span>🦄 :{this.props.horns}
               </Card.Text>
-              <Button variant="secondary" size="lg" active>
-                show mpre{" "}
+              <Button variant="secondary" size="lg" active onClick={this.selectHandler} >
+                show more{" "}
               </Button>
             </Card.Body>
           </Card>

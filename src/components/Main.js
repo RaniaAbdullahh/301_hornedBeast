@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import HornedBeasts from "./HornedBeasts";
-import HornedData from "./HornedData.json";
+// import HornedData from "./HornedData.json";
 import Row from "react-bootstrap/Row";
 import 'bootstrap/dist/css/bootstrap.min.css';
 class Main extends Component {
@@ -32,13 +32,15 @@ class Main extends Component {
     return (
       <>
         <Row xs={1} md={3} className="g-4">
-          {HornedData.map((ele) => {
+          {this.props.allData.map((ele) => {
             return (
               <HornedBeasts
                 title={ele.title}
                 image_url={ele.image_url}
                 description={ele.description}
                 horns={ele.horns}
+                selectHandler= {this.props.selectHandler}
+                show ={this.props.show}
               />
             );
           })}
